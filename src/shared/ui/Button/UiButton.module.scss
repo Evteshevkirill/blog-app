@@ -1,0 +1,20 @@
+@use '../vars.scss' as *;
+
+
+.buttons{
+  padding: 18px;
+  border: none;
+  cursor: pointer;
+  background-color: $white;
+  color: $title-color;
+  border-radius: 5px;
+  line-height: 28px;
+  font-size: 18px;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+.primary {
+  border: 1px solid $primary-button;
+  color: $primary-button
+}

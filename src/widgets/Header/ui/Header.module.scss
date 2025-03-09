@@ -1,0 +1,25 @@
+@use '../../../shared/ui/vars.scss' as *;
+
+.header {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 22px;
+    margin-bottom: 25px;
+    background-color: $white;
+  }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 28px;
+    color: $title-color;
+    font-weight: 400;
+  }
+}

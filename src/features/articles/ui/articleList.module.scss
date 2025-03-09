@@ -1,0 +1,8 @@
+@use '../../../shared/ui/vars.scss' as *;
+
+.article__list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  list-style: none;
+}

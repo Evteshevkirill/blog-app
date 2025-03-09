@@ -1,5 +1,11 @@
-import "./app.css";
+import { HomePage } from '../../pages/HomePage'
+
+import classes from './App.module.scss'
 
 export function App() {
-  return <></>;
+  return (
+    <section className={classes.app}>
+      <HomePage />
+    </section>
+  )
 }

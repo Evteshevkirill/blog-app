@@ -1,0 +1,10 @@
+@use '../../../shared/ui/vars.scss' as *;
+
+.main {
+  width: 940px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-bottom: 15px;
+}

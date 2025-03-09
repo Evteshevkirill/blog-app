@@ -1,0 +1,1 @@
+export { UiArticleCard } from './article'

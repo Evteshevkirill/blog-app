@@ -1,0 +1,113 @@
+@use '../../../shared/ui/vars.scss' as *;
+
+.article {
+  &__title {
+    font-size: 20px;
+    color: $article-color-blue;
+  }
+
+  &__tag {
+    border: 1px solid $tags-color;
+    border-radius: 2px;
+    line-height: 15px;
+    padding: 3px 5px;
+  }
+
+  &__tags {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__card {
+    list-style-type: none;
+    background-color: $white;
+    padding: 15px 0 25px 20px;
+    width: 940px;
+    height: 140px;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 0 10px 10px 0;
+  }
+
+  &__description-text {
+    font-size: 12px;
+    color: $article-text-color;
+  }
+
+  &__header-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__header-text {
+    width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__header-title {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__author {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__profile-img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+  }
+
+  &__profile-name {
+    font-size: 18px;
+    color: $title-color;
+  }
+
+  &__liked {
+    background-color: $white;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__like:hover {
+    transform: scale(1.2);
+    color: red;
+  }
+
+  &__heart-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__heart-svg {
+    width: 16px;
+    height: 14px;
+    fill: transparent;
+    stroke: $article-text-color;
+    stroke-width: 2;
+    transition: fill 0.3s ease;
+  }
+
+  &__heart-svg:hover {
+    fill: red;
+    transition: fill 0.3s ease;
+  }
+
+  &__heart-count {
+    margin-left: 5px;
+    font-size: 12px;
+    color: article-text-color;
+  }
+
+  &__heart-checkbox {
+    display: none;
+  }
+
+  &__heart-checkbox:checked + &__heart-svg {
+    fill: red;
+  }
+}

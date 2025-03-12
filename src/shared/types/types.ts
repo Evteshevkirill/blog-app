@@ -5,13 +5,12 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   handler: () => void
   disabled?: boolean
   variant: string
-  type: 'button' | 'submit'
+  type?: 'button' | 'submit'
 }
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string
-  handel: (e: React.ChangeEvent<HTMLInputElement>) => void
-  value: string
   placeholder: string
   className?: string
+  id?: string
 }

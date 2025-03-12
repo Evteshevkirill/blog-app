@@ -1,1 +1,2 @@
-export { UiArticleList } from './ui/UiArticleList'
+import UiArticleCardList from './ui/UiArticleCardList'
+export { UiArticleCardList }

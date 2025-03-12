@@ -1,0 +1,46 @@
+@use '../../../shared/ui/vars.scss' as *;
+
+.form {
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 390px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 6px;
+  box-shadow:
+    0px 0.61px 2.93px 0px rgba(0, 0, 0, 0.02),
+    0px 1.46px 7.05px 0px rgba(0, 0, 0, 0.03),
+    0px 2.75px 13.27px 0px rgba(0, 0, 0, 0.04),
+    0px 4.91px 23.68px 0px rgba(0, 0, 0, 0.04),
+    0px 9.19px 44.28px 0px rgba(0, 0, 0, 0.05),
+    0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+  /* Grey / grey-1 */
+  background: $white;
+
+  &__title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__call {
+    color: $tags-color;
+    text-align: center;
+  }
+
+  &__call-text {
+    color: $primary-button;
+    text-decoration: none;
+  }
+
+  &__call-text:hover {
+    text-decoration-line: underline;
+  }
+}

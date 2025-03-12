@@ -1,8 +1,12 @@
 @use '../../../shared/ui/vars.scss' as *;
 
-.article__list {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  list-style: none;
+.article {
+  &__items {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    list-style: none;
+    margin-bottom: 27px;
+  }
 }

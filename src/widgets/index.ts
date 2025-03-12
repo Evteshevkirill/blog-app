@@ -1,2 +1,1 @@
-export { ArticlesListWidget } from './ArticlesList'
-export { HeaderWidget } from './Header'
+export { HeaderWidget } from './Header/HeaderWidget'

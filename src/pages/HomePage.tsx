@@ -1,10 +1,9 @@
-import { HeaderWidget, ArticlesListWidget } from '../widgets'
-
+import { UiArticleCardList } from '../features'
+import { IUiArticleCardListProps } from '../features'
 export function HomePage() {
   return (
     <>
-      <HeaderWidget />
-      <ArticlesListWidget />
+      <UiArticleCardList {...({} as IUiArticleCardListProps)} />
     </>
   )
 }

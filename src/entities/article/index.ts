@@ -1,1 +1,2 @@
-export { UiArticleCard } from './ui/UiArticleCard'
+export type { IUiArticleCardProps } from './types/articleCardProps'
+export { UiArticleCard } from './ui'

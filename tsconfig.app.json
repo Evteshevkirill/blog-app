@@ -9,7 +9,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
@@ -19,9 +19,12 @@
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-   
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"]
 }

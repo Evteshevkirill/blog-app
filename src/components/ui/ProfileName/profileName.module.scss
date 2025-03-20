@@ -1,0 +1,19 @@
+@use '../styles/vars.scss' as *;
+.article {
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__profile-img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+  }
+
+  &__profile-name {
+    font-size: 18px;
+    color: $title-color;
+  }
+}

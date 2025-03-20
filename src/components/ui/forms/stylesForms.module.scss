@@ -1,0 +1,146 @@
+@use '../styles/vars.scss' as *;
+
+.form {
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 390px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 6px;
+  box-shadow:
+    0px 0.61px 2.93px 0px rgba(0, 0, 0, 0.02),
+    0px 1.46px 7.05px 0px rgba(0, 0, 0, 0.03),
+    0px 2.75px 13.27px 0px rgba(0, 0, 0, 0.04),
+    0px 4.91px 23.68px 0px rgba(0, 0, 0, 0.04),
+    0px 9.19px 44.28px 0px rgba(0, 0, 0, 0.05),
+    0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+  background: $white;
+
+  &__title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__group {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  &__call {
+    color: $tags-color;
+    text-align: center;
+  }
+
+  &__call-text {
+    color: $primary-button;
+    text-decoration: none;
+  }
+
+  &__call-text:hover {
+    text-decoration-line: underline;
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__tags-add-button {
+    display: inline-flex;
+    align-items: end;
+    margin-left: 20px;
+  }
+
+  &__tags-wrapper {
+    display: flex;
+  }
+
+  &__tags-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  &__new-tag {
+    display: flex;
+    align-items: end;
+    gap: 17px;
+  }
+}
+.form__article {
+  margin-top: 35px;
+  margin-bottom: 30px;
+  width: 940px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 6px;
+  box-shadow:
+    0px 0.61px 2.93px 0px rgba(0, 0, 0, 0.02),
+    0px 1.46px 7.05px 0px rgba(0, 0, 0, 0.03),
+    0px 2.75px 13.27px 0px rgba(0, 0, 0, 0.04),
+    0px 4.91px 23.68px 0px rgba(0, 0, 0, 0.04),
+    0px 9.19px 44.28px 0px rgba(0, 0, 0, 0.05),
+    0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+  /* Grey / grey-1 */
+  background: $white;
+}
+
+.input-form {
+  padding: 8px 12px;
+  background-color: $white;
+  color: $title-color;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+.input-form.error {
+  border: 1px solid red;
+}
+
+label {
+  font-size: 14px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.input-form-text {
+  padding-bottom: 135px;
+}
+
+.form__checkbox {
+  display: flex;
+  gap: 8px;
+}
+
+.form__checkbox label {
+  color: #595959;
+}
+
+.form__checkbox input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.form__checkbox-wrapper {
+  border-top: 1px solid #e8e8e8;
+  padding-top: 10px;
+}
+
+.form__checkbox input:checked {
+  background-color: black;
+}

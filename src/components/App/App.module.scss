@@ -1,0 +1,17 @@
+@use '../ui/styles/vars.scss' as *;
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter';
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  background-color: $body-color;
+}

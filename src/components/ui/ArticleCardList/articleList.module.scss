@@ -1,0 +1,12 @@
+@use '../styles/vars.scss' as *;
+
+.article {
+  &__items {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    list-style: none;
+    margin-bottom: 27px;
+  }
+}

@@ -1,0 +1,59 @@
+@use './vars.scss' as *;
+
+.buttons {
+  padding: 18px;
+  border: none;
+  cursor: pointer;
+  background-color: $white;
+  color: $title-color;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+.buttons:disabled {
+  opacity: 0.5;
+}
+
+.primary {
+  width: 320px;
+  padding: 8px 16px;
+  color: $white;
+  background-color: $primary-button;
+  border: 1px solid $primary-button;
+}
+
+.default {
+  border: 1px solid $default-button;
+  color: $default-button;
+}
+
+.default:hover,
+.text:hover,
+.primary:hover,
+.danger:hover,
+.normal:hover {
+  opacity: 50%;
+}
+
+.normal {
+  padding: 8px 12px;
+  border: 1px solid $primary-button;
+  color: $primary-button;
+}
+
+.danger {
+  padding: 8px 12px;
+  border: 1px solid $danger-button;
+  color: $danger-button;
+}
+
+.text {
+  border: 1px solid $body-color;
+  border-radius: 5px;
+}
+
+.text:hover {
+  border: 1px solid $tags-color;
+}

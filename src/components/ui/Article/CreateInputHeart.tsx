@@ -22,8 +22,6 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
   }
   useEffect(() => {
     if (data) {
-      // localStorage.setItem(`like${slug}`, data.article.favorited)
-      console.log(data)
       setLike(data.article.favorited)
       setCount(data.article.favoritesCount)
     }
@@ -31,14 +29,12 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
 
   useEffect(() => {
     if (deleteData) {
-      // localStorage.removeItem(`like${slug}`)
       setLike(deleteData.article.favorited)
       setCount(deleteData.article.favoritesCount)
     }
   }, [deleteData])
 
   const changeLike = (e: boolean) => {
-    console.log(e)
     if (e) {
       mutate({ slug })
     }

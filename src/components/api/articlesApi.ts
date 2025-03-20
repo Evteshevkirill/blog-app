@@ -60,11 +60,10 @@ export const articlesApi = createApi({
       }),
     }),
     postFavoriteArticle: build.mutation({
-      query: ({ slug, checked }) => ({
+      query: ({ slug }) => ({
         url: `/articles/${slug}/favorite`,
         method: 'POST',
         headers: { Authorization: `Token ${user.token}` },
-        body: { favorited: checked },
       }),
     }),
     deleteFavorite: build.mutation({

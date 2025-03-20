@@ -11,31 +11,38 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
 
   const [mutate, { error, data }] = usePostFavoriteArticleMutation()
 
-  const [deleteMutate, { data: deleteData }] = useDeleteFavoriteMutation()
+  const [deleteMutate, { data: deleteData, error: deleteError }] = useDeleteFavoriteMutation()
+
   if (error) {
     mutate({ slug })
   }
 
+  if (deleteError) {
+    deleteMutate({ slug })
+  }
   useEffect(() => {
     if (data) {
-      localStorage.setItem(`like${slug}`, data.article.favorited)
+      // localStorage.setItem(`like${slug}`, data.article.favorited)
+      console.log(data)
       setLike(data.article.favorited)
       setCount(data.article.favoritesCount)
     }
-  }, [data, slug])
+  }, [data])
 
   useEffect(() => {
     if (deleteData) {
-      localStorage.removeItem(`like${slug}`)
+      // localStorage.removeItem(`like${slug}`)
       setLike(deleteData.article.favorited)
       setCount(deleteData.article.favoritesCount)
     }
-  }, [deleteData, slug])
+  }, [deleteData])
 
   const changeLike = (e: boolean) => {
+    console.log(e)
     if (e) {
       mutate({ slug })
     }
+
     deleteMutate({ slug })
   }
 
@@ -43,7 +50,7 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
     <>
       <label className={classes['article__heart-container']}>
         <input
-          checked={localStorage.getItem(`like${slug}`) ? true : like}
+          checked={like}
           onChange={(e) => changeLike(e.target.checked)}
           type="checkbox"
           className={classes['article__heart-checkbox']}

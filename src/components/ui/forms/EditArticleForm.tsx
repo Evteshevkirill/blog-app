@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { UiSpinner } from '../uiComponents'
 
 import { IArticleFormProps } from '../../types'

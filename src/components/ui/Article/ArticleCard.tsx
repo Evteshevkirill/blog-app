@@ -12,6 +12,7 @@ import styles from './markdownContent.module.scss'
 
 export const ArticleCard = ({ article, children, body }: IArticleCardProps) => {
   const { title, description, createdAt, author, tagList, favorited, favoritesCount, slug } = article
+
   const date = new Date(createdAt)
   const formattedDate = format(date, 'MMMM dd, yyyy')
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { JSX, useEffect, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { useParams } from 'react-router'
@@ -12,7 +13,7 @@ const withEditArticle = <T extends object>(
   return function () {
     const { slug } = useParams()
 
-    const { register, handleSubmit, unregister, getValues } = useForm()
+    const { register, handleSubmit, unregister, getValues, setValue, reset } = useForm({})
 
     const { data, isLoading, isSuccess } = useGetFullArticleQuery({
       slug,
@@ -30,8 +31,17 @@ const withEditArticle = <T extends object>(
     const handleRemoveTag = (index: number) => {
       const newTags = [...tagList]
       newTags.splice(index, 1)
+
       setTags(newTags)
       unregister(`tag${index}`)
+      reset({ field: `tag${index}`, value: '' })
+
+      const values = getValues()
+      const filteredValues = Object.fromEntries(Object.entries(values).filter(([value]) => value !== undefined))
+
+      Object.keys(filteredValues).forEach((key) => {
+        setValue(key, filteredValues[key])
+      })
     }
 
     useEffect(() => {

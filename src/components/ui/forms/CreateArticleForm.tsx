@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { withCreateArticle } from '../../HOC'
 import { IArticleFormProps } from '../../types'
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FieldValues, useForm } from 'react-hook-form'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router'

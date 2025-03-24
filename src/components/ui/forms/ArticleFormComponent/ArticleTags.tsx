@@ -18,6 +18,7 @@ export const ArticleTags = ({ register, tagList, handleRemoveTag }: IArticleTags
             <input
               {...register(`tag${index}`, {
                 value: `${tag}`,
+                validate: (value) => value.trim() !== '',
               })}
               style={{ width: '300px' }}
               className={classes['input-form']}

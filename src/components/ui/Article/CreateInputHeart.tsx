@@ -1,8 +1,7 @@
-import { usePostFavoriteArticleMutation, useDeleteFavoriteMutation } from '../../api'
-import { user } from '../../api'
+import { useEffect, useState } from 'react'
+import { usePostFavoriteArticleMutation, useDeleteFavoriteMutation, user } from '../../api'
 
 import classes from './articleCard.module.scss'
-import { useEffect, useState } from 'react'
 
 export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCount: number) => {
   const [like, setLike] = useState(favorited)
@@ -13,13 +12,6 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
 
   const [deleteMutate, { data: deleteData, error: deleteError }] = useDeleteFavoriteMutation()
 
-  if (error) {
-    mutate({ slug })
-  }
-
-  if (deleteError) {
-    deleteMutate({ slug })
-  }
   useEffect(() => {
     if (data) {
       setLike(data.article.favorited)
@@ -37,9 +29,14 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
   const changeLike = (e: boolean) => {
     if (e) {
       mutate({ slug })
+      if (error) {
+        mutate({ slug })
+      }
     }
-
     deleteMutate({ slug })
+    if (deleteError) {
+      deleteMutate({ slug })
+    }
   }
 
   return (

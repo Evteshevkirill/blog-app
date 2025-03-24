@@ -10,7 +10,7 @@ import styles from '../styles/buttons.module.scss'
 export const FullArticle = () => {
   const { slug } = useParams()
 
-  const { isLoading, isError, data, status } = useGetFullArticleQuery({ slug })
+  const { isLoading, isError, data, isSuccess } = useGetFullArticleQuery({ slug })
 
   const [deleteMutate, { isSuccess: isSuccessDelete }] = useDeleteArticleMutation()
 
@@ -23,7 +23,7 @@ export const FullArticle = () => {
       {isLoading && <UiSpinner />}
       {isError && <UiAlert message="Error: Ошибка загрузки статьи" />}
       {isSuccessDelete && <UiAlert message="Статья успешно удалена" type="success" />}
-      {status === 'fulfilled' && data && (
+      {isSuccess && (
         <ArticleCard article={data.article} body={data.article.body}>
           {user && (
             <>

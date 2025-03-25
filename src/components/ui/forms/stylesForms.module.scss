@@ -52,12 +52,12 @@
 
   &__tags-add-button {
     display: inline-flex;
-    align-items: end;
     margin-left: 20px;
   }
 
   &__tags-wrapper {
     display: flex;
+    align-items: end;
   }
 
   &__tags-inputs {
@@ -67,7 +67,8 @@
   }
   &__new-tag {
     display: flex;
-    align-items: end;
+    align-items: top;
+    vertical-align: middle;
     gap: 17px;
   }
 }

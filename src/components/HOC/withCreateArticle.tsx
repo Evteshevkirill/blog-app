@@ -1,19 +1,35 @@
-import { JSX, useState } from 'react'
+import { JSX, useEffect, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 
 import { usePostCreateArticleMutation } from '../api'
 
 import { IArticleFormProps } from '../types/ArticleFormProps'
+import { useNavigate } from 'react-router'
 
 const withCreateArticle = <T extends object>(
   Component: React.ComponentType<IArticleFormProps>
 ): ((props: T & IArticleFormProps) => JSX.Element) => {
   return function () {
-    const { register, handleSubmit, unregister, getValues } = useForm()
+    const {
+      register,
+      handleSubmit,
+      unregister,
+      getValues,
+      formState: { errors },
+    } = useForm({ mode: 'onChange', reValidateMode: 'onChange', shouldUnregister: false })
 
     const [mutate, { isLoading, isError: errorCreate, isSuccess: isSuccessCreate }] = usePostCreateArticleMutation()
 
+    const navigate = useNavigate()
+
     const [tagList, setTags] = useState<string[]>([''])
+
+    useEffect(() => {
+      if (isSuccessCreate) {
+        navigate('/')
+        // window.location.reload()
+      }
+    }, [isSuccessCreate, navigate])
 
     const handleAddTag = () => {
       setTags([...tagList, ''])
@@ -48,6 +64,7 @@ const withCreateArticle = <T extends object>(
         handleRemoveTag={handleRemoveTag}
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
+        errorValidate={errors}
       />
     )
   }

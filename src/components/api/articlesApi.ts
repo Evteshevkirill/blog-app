@@ -18,7 +18,14 @@ export const articlesApi = createApi({
       },
     }),
     getFullArticle: build.query({
-      query: ({ slug }) => `/articles/${slug}`,
+      query: ({ slug, isAuthenticated }) => {
+        const headers = isAuthenticated ? { Authorization: `Token ${user.token}` } : {}
+        return {
+          url: `/articles/${slug}`,
+          method: 'GET',
+          headers,
+        }
+      },
     }),
     postCreateArticle: build.mutation({
       query: ({ article }) => ({

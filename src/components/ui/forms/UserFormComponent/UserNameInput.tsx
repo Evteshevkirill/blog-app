@@ -1,4 +1,4 @@
-import { validateMessage } from './validateMessage'
+import { validateMessage } from '../validateMessage'
 
 import classes from '../stylesForms.module.scss'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'

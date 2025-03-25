@@ -6,6 +6,7 @@ import { useParams } from 'react-router'
 import { useGetFullArticleQuery, usePostEditArticleMutation } from '../api'
 
 import { IArticleFormProps } from '../types'
+import { useAuth } from '../App/AuthContext'
 
 const withEditArticle = <T extends object>(
   Component: React.ComponentType<IArticleFormProps>
@@ -13,11 +14,25 @@ const withEditArticle = <T extends object>(
   return function () {
     const { slug } = useParams()
 
-    const { register, handleSubmit, unregister, getValues, setValue, reset } = useForm({})
+    const {
+      register,
+      handleSubmit,
+      unregister,
+      getValues,
+      setValue,
+      formState: { errors },
+    } = useForm({ mode: 'onChange', reValidateMode: 'onChange', shouldUnregister: false })
 
-    const { data, isLoading, isSuccess } = useGetFullArticleQuery({
+    const { isAuthenticated } = useAuth()
+
+    const { data, isLoading, isSuccess, refetch } = useGetFullArticleQuery({
       slug,
+      isAuthenticated,
     })
+
+    useEffect(() => {
+      refetch()
+    }, [])
 
     const [mutate, { isLoading: isEditLoading, isError: errorEdit, isSuccess: isSuccessEdit }] =
       usePostEditArticleMutation()
@@ -34,7 +49,6 @@ const withEditArticle = <T extends object>(
 
       setTags(newTags)
       unregister(`tag${index}`)
-      reset({ field: `tag${index}`, value: '' })
 
       const values = getValues()
       const filteredValues = Object.fromEntries(Object.entries(values).filter(([value]) => value !== undefined))
@@ -75,6 +89,7 @@ const withEditArticle = <T extends object>(
             handleRemoveTag={handleRemoveTag}
             handleAddTag={handleAddTag}
             onSubmit={onSubmit}
+            errorValidate={errors}
           />
         )}
       </>

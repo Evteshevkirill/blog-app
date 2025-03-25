@@ -16,6 +16,7 @@ const EditArticleForm = ({
   register,
   onSubmit,
   isSuccessEdit,
+  errorValidate,
 }: IArticleFormProps) => {
   return (
     <>
@@ -31,6 +32,7 @@ const EditArticleForm = ({
         onSubmit={onSubmit}
         isSuccessEdit={isSuccessEdit}
         errorEdit={errorEdit}
+        errorValidate={errorValidate}
       />
     </>
   )

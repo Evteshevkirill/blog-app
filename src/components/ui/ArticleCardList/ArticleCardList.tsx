@@ -20,7 +20,7 @@ const ArticleCardList = ({ isLoading, isError, onChangePage, articles, page }: I
           {articles.map((article) => (
             <ArticleCard key={article.slug} article={article} />
           ))}
-          <Pagination pageSize={page} onChange={onChangePage} align="center" defaultCurrent={1} total={500} />
+          <Pagination current={page} onChange={onChangePage} align="center" defaultCurrent={1} total={500} />
         </ul>
       )}
     </section>

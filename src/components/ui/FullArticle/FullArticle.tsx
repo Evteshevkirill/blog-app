@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDeleteArticleMutation, useGetFullArticleQuery, user } from '../../api'
 import { Link, useParams } from 'react-router'
 
@@ -6,13 +7,21 @@ import { UiSpinner, UiAlert } from '../uiComponents'
 import { Button, Popconfirm } from 'antd'
 
 import styles from '../styles/buttons.module.scss'
+import { useEffect } from 'react'
+import { useAuth } from '../../App/AuthContext'
 
 export const FullArticle = () => {
   const { slug } = useParams()
 
-  const { isLoading, isError, data, isSuccess } = useGetFullArticleQuery({ slug })
+  const { isAuthenticated } = useAuth()
+
+  const { isLoading, isError, data, isSuccess, refetch } = useGetFullArticleQuery({ slug, isAuthenticated })
 
   const [deleteMutate, { isSuccess: isSuccessDelete }] = useDeleteArticleMutation()
+
+  useEffect(() => {
+    refetch()
+  }, [])
 
   const onDeleteArticle = () => {
     if (slug) deleteMutate({ slug })

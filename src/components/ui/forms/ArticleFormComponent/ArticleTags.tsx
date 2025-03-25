@@ -1,15 +1,17 @@
-import { FieldValues, UseFormRegister } from 'react-hook-form'
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 import classes from '../stylesForms.module.scss'
 import styles from '../../styles/buttons.module.scss'
+import { validateMessage } from '../validateMessage'
 
 interface IArticleTagsProps {
   register: UseFormRegister<FieldValues>
   tagList: string[]
   handleRemoveTag: (index: number) => void
+  errorValidate: FieldErrors<FieldValues>
 }
 
-export const ArticleTags = ({ register, tagList, handleRemoveTag }: IArticleTagsProps) => {
+export const ArticleTags = ({ register, tagList, handleRemoveTag, errorValidate }: IArticleTagsProps) => {
   return (
     <>
       {tagList.map((tag, index) => (
@@ -18,13 +20,14 @@ export const ArticleTags = ({ register, tagList, handleRemoveTag }: IArticleTags
             <input
               {...register(`tag${index}`, {
                 value: `${tag}`,
-                validate: (value) => value.trim() !== '',
+                validate: (value) => (value.trim() === '' ? 'Не должно быть пустым, удалите или заполните' : true),
               })}
               style={{ width: '300px' }}
-              className={classes['input-form']}
+              className={`${classes['input-form']} ${errorValidate[`tag${index}`] && classes.error}`}
               type="text"
               placeholder="Tag"
             />
+            {errorValidate[`tag${index}`] && validateMessage(errorValidate, `tag${index}`)}
           </div>
           <div>
             <button

@@ -1,4 +1,4 @@
-import { FieldValues, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
+import { FieldErrors, FieldValues, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
 
 export interface IArticleFormProps {
   load?: boolean
@@ -14,6 +14,7 @@ export interface IArticleFormProps {
   onSubmit: (article: FieldValues) => void
   isSuccessEdit?: boolean
   isSuccessCreate?: boolean
+  errorValidate: FieldErrors<FieldValues>
 }
 
 type article = {

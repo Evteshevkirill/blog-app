@@ -8,16 +8,17 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
 
   const [count, setCount] = useState(favoritesCount)
 
-  const [mutate, { error, data }] = usePostFavoriteArticleMutation()
+  const [mutate, { error, data, isSuccess }] = usePostFavoriteArticleMutation()
 
   const [deleteMutate, { data: deleteData, error: deleteError }] = useDeleteFavoriteMutation()
 
   useEffect(() => {
-    if (data) {
+    if (isSuccess && data) {
       setLike(data.article.favorited)
+
       setCount(data.article.favoritesCount)
     }
-  }, [data])
+  }, [isSuccess, data])
 
   useEffect(() => {
     if (deleteData) {

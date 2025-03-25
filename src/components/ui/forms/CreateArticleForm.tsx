@@ -16,7 +16,6 @@ const CreateArticleForm = ({
   load,
   errorCreate,
   errorEdit,
-  isValid,
   errorValidate,
 }: IArticleFormProps) => {
   return (
@@ -33,7 +32,6 @@ const CreateArticleForm = ({
       handleAddTag={handleAddTag}
       handleSubmit={handleSubmit}
       onSubmit={onSubmit}
-      isValid={isValid}
       errorValidate={errorValidate}
     />
   )

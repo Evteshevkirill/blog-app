@@ -1,6 +1,6 @@
 import { FieldValues, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import { usePostRegistrationMutation } from '../../api'
 
@@ -22,13 +22,15 @@ export const CreateAccountForm = () => {
 
   const [mutate, { isLoading, isSuccess, error: errorApi }] = usePostRegistrationMutation<IUserInfo>()
 
-  const validate = (value) => {
-    if (value !== getValues('password')) {
-      return 'Пароли не совпадают'
-    }
-    return true
-  }
-
+  const validate = useCallback(
+    (value) => {
+      if (value !== getValues('password')) {
+        return 'Пароли не совпадают'
+      }
+      return true
+    },
+    [getValues]
+  )
   const onSubmit = async (user: FieldValues) => {
     await mutate(user)
   }

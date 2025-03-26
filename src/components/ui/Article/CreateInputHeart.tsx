@@ -33,10 +33,11 @@ export const CreateInputHeart = (slug: string, favorited: boolean, favoritesCoun
       if (error) {
         mutate({ slug })
       }
-    }
-    deleteMutate({ slug })
-    if (deleteError) {
+    } else {
       deleteMutate({ slug })
+      if (deleteError) {
+        deleteMutate({ slug })
+      }
     }
   }
 

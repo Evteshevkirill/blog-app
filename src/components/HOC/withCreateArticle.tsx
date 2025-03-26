@@ -27,7 +27,7 @@ const withCreateArticle = <T extends object>(
     useEffect(() => {
       if (isSuccessCreate) {
         navigate('/')
-        // window.location.reload()
+        localStorage.setItem('page', '1')
       }
     }, [isSuccessCreate, navigate])
 
